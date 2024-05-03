@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="DirectShowLib">
       <HintPath>..\..\..\..\..\Repos\DirectShowLib.dll</HintPath>
     </Reference>

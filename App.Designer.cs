@@ -34,13 +34,14 @@
             Stop = new Button();
             getState = new Button();
             File = new TextBox();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             SuspendLayout();
             // 
             // Browse
             // 
-            Browse.Location = new Point(118, 45);
+            Browse.Location = new Point(41, 12);
             Browse.Name = "Browse";
-            Browse.Size = new Size(119, 34);
+            Browse.Size = new Size(78, 38);
             Browse.TabIndex = 0;
             Browse.Text = "Browse";
             Browse.UseVisualStyleBackColor = true;
@@ -48,9 +49,9 @@
             // 
             // PlayBtn
             // 
-            PlayBtn.Location = new Point(118, 115);
+            PlayBtn.Location = new Point(41, 77);
             PlayBtn.Name = "PlayBtn";
-            PlayBtn.Size = new Size(119, 34);
+            PlayBtn.Size = new Size(56, 38);
             PlayBtn.TabIndex = 1;
             PlayBtn.Text = "Play";
             PlayBtn.UseVisualStyleBackColor = true;
@@ -58,9 +59,9 @@
             // 
             // Pause
             // 
-            Pause.Location = new Point(118, 185);
+            Pause.Location = new Point(145, 79);
             Pause.Name = "Pause";
-            Pause.Size = new Size(112, 35);
+            Pause.Size = new Size(72, 36);
             Pause.TabIndex = 2;
             Pause.Text = "Pause";
             Pause.UseVisualStyleBackColor = true;
@@ -68,9 +69,9 @@
             // 
             // Stop
             // 
-            Stop.Location = new Point(118, 258);
+            Stop.Location = new Point(269, 75);
             Stop.Name = "Stop";
-            Stop.Size = new Size(112, 34);
+            Stop.Size = new Size(69, 40);
             Stop.TabIndex = 3;
             Stop.Text = "Stop";
             Stop.UseVisualStyleBackColor = true;
@@ -78,9 +79,9 @@
             // 
             // getState
             // 
-            getState.Location = new Point(118, 337);
+            getState.Location = new Point(247, 12);
             getState.Name = "getState";
-            getState.Size = new Size(112, 34);
+            getState.Size = new Size(91, 34);
             getState.TabIndex = 4;
             getState.Text = "GetState";
             getState.UseVisualStyleBackColor = true;
@@ -88,8 +89,9 @@
             // 
             // File
             // 
-            File.Location = new Point(41, 432);
+            File.Location = new Point(41, 151);
             File.Name = "File";
+            File.ReadOnly = true;
             File.Size = new Size(300, 31);
             File.TabIndex = 5;
             File.TextChanged += File_TextChanged;
@@ -98,7 +100,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(387, 727);
+            ClientSize = new Size(367, 248);
             Controls.Add(File);
             Controls.Add(getState);
             Controls.Add(Stop);
@@ -119,5 +121,6 @@
         private Button PlayBtn;
         private Button getState;
         private TextBox File;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
