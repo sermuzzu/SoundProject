@@ -35,6 +35,7 @@
             getState = new Button();
             File = new TextBox();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            progressBar1 = new ProgressBar();
             SuspendLayout();
             // 
             // Browse
@@ -49,7 +50,7 @@
             // 
             // PlayBtn
             // 
-            PlayBtn.Location = new Point(41, 77);
+            PlayBtn.Location = new Point(41, 125);
             PlayBtn.Name = "PlayBtn";
             PlayBtn.Size = new Size(56, 38);
             PlayBtn.TabIndex = 1;
@@ -59,9 +60,9 @@
             // 
             // Pause
             // 
-            Pause.Location = new Point(145, 79);
+            Pause.Location = new Point(103, 125);
             Pause.Name = "Pause";
-            Pause.Size = new Size(72, 36);
+            Pause.Size = new Size(72, 38);
             Pause.TabIndex = 2;
             Pause.Text = "Pause";
             Pause.UseVisualStyleBackColor = true;
@@ -69,9 +70,9 @@
             // 
             // Stop
             // 
-            Stop.Location = new Point(269, 75);
+            Stop.Location = new Point(181, 125);
             Stop.Name = "Stop";
-            Stop.Size = new Size(69, 40);
+            Stop.Size = new Size(69, 38);
             Stop.TabIndex = 3;
             Stop.Text = "Stop";
             Stop.UseVisualStyleBackColor = true;
@@ -79,7 +80,7 @@
             // 
             // getState
             // 
-            getState.Location = new Point(247, 12);
+            getState.Location = new Point(354, 129);
             getState.Name = "getState";
             getState.Size = new Size(91, 34);
             getState.TabIndex = 4;
@@ -89,18 +90,27 @@
             // 
             // File
             // 
-            File.Location = new Point(41, 151);
+            File.BorderStyle = BorderStyle.FixedSingle;
+            File.Location = new Point(145, 12);
             File.Name = "File";
             File.ReadOnly = true;
             File.Size = new Size(300, 31);
             File.TabIndex = 5;
             File.TextChanged += File_TextChanged;
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(41, 65);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(404, 34);
+            progressBar1.TabIndex = 6;
+            // 
             // MP3Player
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(367, 248);
+            ClientSize = new Size(487, 179);
+            Controls.Add(progressBar1);
             Controls.Add(File);
             Controls.Add(getState);
             Controls.Add(Stop);
@@ -122,5 +132,6 @@
         private Button getState;
         private TextBox File;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ProgressBar progressBar1;
     }
 }

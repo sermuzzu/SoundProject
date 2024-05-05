@@ -1,6 +1,7 @@
 using DirectShowLib;
 using NAudio.Wave;
 using QuartzTypeLib;
+using Timer = System.Windows.Forms.Timer;
 
 namespace SoundProject
 {
@@ -10,6 +11,10 @@ namespace SoundProject
         private DirectShowLib.IMediaControl mediaControl;
         private WaveOutEvent waveOutDevice;
         private AudioFileReader audioFileReader;
+
+        private WaveStream waveStream;
+        private WaveOutEvent waveOut;
+        private Timer timer;
 
         public MP3Player()
         {
@@ -31,6 +36,7 @@ namespace SoundProject
                 File.Text = mp3FilePath;
                 Stopping();
                 Play(mp3FilePath);
+                configure_ProgressBar();
             }
         }
 
@@ -76,6 +82,24 @@ namespace SoundProject
             }
         }
 
+
+        private void configure_ProgressBar()
+        {
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = (int)audioFileReader.TotalTime.TotalSeconds;
+            progressBar1.Value = (int)audioFileReader.CurrentTime.TotalSeconds;
+
+            // Actualiza la barra de progreso periódicamente
+            var timer = new Timer();
+            timer.Interval = 1000; // Actualiza cada segundo
+            timer.Tick += (s, args) =>
+            {
+                if (audioFileReader!=null)
+                progressBar1.Value = (int)audioFileReader.CurrentTime.TotalSeconds;
+            };
+            timer.Start();
+        }
+
         private void btnPlay_Click(object sender, EventArgs e)
         {
             Play(File.Text);
@@ -109,6 +133,7 @@ namespace SoundProject
 
             audioFileReader?.Dispose();
             audioFileReader = null;
+            progressBar1.Value = 0;
         }
 
         private void btnGet_State(object sender, EventArgs e)
@@ -142,5 +167,6 @@ namespace SoundProject
         {
             //File.Text = mp3FilePath;
         }
+
     }
 }
